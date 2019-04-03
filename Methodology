@@ -1,14 +1,52 @@
 Followed the 6 step methodologyu of CRISP Data Mining process:
 
 1) Business Understanding
-Claims costs XPO Logistics $90 Million+ every year. 
+Claims costs XPO Logistics $10 Million+ every year. 
 The project was divided into 3 different sub parts:
 -- Prediction of closed Claim Value: How much the business should keep aside for thier claims on a monthly basis?
 -- NMFC Class Analysis: Which NMFC class shipments are leading to losses. Usually customers pay extra charge for excess liability coverage and n case of damage claim back amounts
 -- Throughput calculations: Analysing the number of claims closed, $ amount closed and the average age to close for different segments of Claim amounts weekly basis
 
+The main aim is to prevent any new claim going into that bucket and resolve/settle them as soon as possible.
+Claims are caused when a damage occurs due to a fault of XPO Logistics and the customer wants their money back.
+
 2) Data understanding:
 CLaims are categorized into 5 buckets: 0-30, 30-60, 60-90, 90-120, 120+ days.
 If the claim goes into the final bucket of 120+ dyas, they have to be written as deductible in the balance sheet of the company.
-The main aim is to prevent any new claim going into that bucket and resolve/settle them as soon as possible.
-Claims are caused when a damage occurs due to a fault of XPO Logistics and the customer wants their money back.
+There were 16 diffrent attributes and metrics in the data. A primary key - claim ID, few dates, few $ amounts 
+
+3) Data Preparation
+10 derived metrics werer created using R and Excel.This would help to predict the closed Claim value and for the throughput anlaysis
+the age of the claims were derived on a bucket basis in R
+The closing week #, Filing week # were derived in excel
+
+Anamoly detection:
+Few of the claims which were open more than 365 days were removed, since those were not appropriate as per business logic and discussions
+
+Missing value treatment:
+for the Claim type, Reason code it was imputed with the mdoe
+For the Claim amount, median was imputed
+
+4) Modelling:
+
+Developed multiple models to achieve an operations scenario tool-
+-- Goal of 5K claims within 3 months
+-- Goal of 0 120+ days claims within 3 months
+-- 20% faster claims closure rate
+-- FIFO model
+-- LIFO model
+-- FILO model
+-- LILO model
+
+5) Evaluation
+
+The models were evaluated with the support of the business. For the 20% faster claims closure rate model, we tried different scenarios of changing the fastness rate as per the budget allocation flexibility
+the best model was selected which saved the most amount for the business, thus reducing the 120+ days claims or even completly making it 0
+
+6) Deployment:
+
+The sql and the R codes were given to the offshore team for the daily run and analysis as suggested by me.
+A Daily automated report was being generated which used to go to the end users in the Back office team in different regions
+
+
+
