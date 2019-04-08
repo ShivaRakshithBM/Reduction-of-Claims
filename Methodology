@@ -20,6 +20,9 @@ There were 16 diffrent attributes and metrics in the data. A primary key - claim
 the age of the claims were derived on a bucket basis in R
 The closing week #, Filing week # were derived in excel
 
+Mean Claim age for each of the buckets and Percentage pay out were calculated for each of the claims, by dividing htem into 0-500, 500-1000,
+1000-1500, 1500-2000, 2000-2500 etc. 
+
 Anamoly detection:
 Few of the claims which were open more than 365 days were removed, since those were not appropriate as per business logic and discussions
 
