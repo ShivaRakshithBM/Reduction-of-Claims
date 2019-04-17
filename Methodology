@@ -4,8 +4,10 @@ Followed the 6 step methodologyu of CRISP Data Mining process:
 Claims costs XPO Logistics $10 Million+ every year. 
 The project was divided into 3 different sub parts:
 -- Prediction of closed Claim Value: How much the business should keep aside for thier claims on a monthly basis?
--- NMFC Class Analysis: Which NMFC class shipments are leading to losses. Usually customers pay extra charge for excess liability coverage and n case of damage claim back amounts
--- Throughput calculations: Analysing the number of claims closed, $ amount closed and the average age to close for different segments of Claim amounts weekly basis
+-- NMFC Class Analysis: Which NMFC class shipments are leading to losses. Usually customers pay extra charge for excess liability 
+coverage and n case of damage claim back amounts
+-- Throughput calculations: Analysing the number of claims closed, $ amount closed and the average age to close for different segments 
+of Claim amounts weekly basis
 
 The main aim is to prevent any new claim going into that bucket and resolve/settle them as soon as possible.
 Claims are caused when a damage occurs due to a fault of XPO Logistics and the customer wants their money back.
@@ -20,14 +22,15 @@ There were 16 diffrent attributes and metrics in the data. A primary key - claim
 the age of the claims were derived on a bucket basis in R
 The closing week #, Filing week # were derived in excel
 
-Mean Claim age for each of the buckets and Percentage pay out were calculated for each of the claims, by dividing htem into 0-500, 500-1000,
-1000-1500, 1500-2000, 2000-2500 etc. 
+Mean Claim age for each of the buckets and Percentage pay out were calculated for each of the claims, by dividing htem into 0-500, 
+500-1000, 1000-1500, 1500-2000, 2000-2500 etc. 
 
 Anamoly detection:
-Few of the claims which were open more than 365 days were removed, since those were not appropriate as per business logic and discussions
+Few of the claims which were open more than 365 days were removed, since those were not appropriate as per business logic and 
+discussions
 
 Missing value treatment:
-for the Claim type, Reason code it was imputed with the mdoe
+for the Claim type, Reason code it was imputed with the mode
 For the Claim amount, median was imputed
 
 4) Modelling:
@@ -43,13 +46,18 @@ Developed multiple models to achieve an operations scenario tool-
 
 5) Evaluation
 
-The models were evaluated with the support of the business. For the 20% faster claims closure rate model, we tried different scenarios of changing the fastness rate as per the budget allocation flexibility
-the best model was selected which saved the most amount for the business, thus reducing the 120+ days claims or even completly making it 0
+The models were evaluated with the support of the business. For the 20% faster claims closure rate model, we tried different scenarios
+of changing the fastness rate as per the budget allocation flexibility.
+The best model was selected which saved the most amount for the business, thus reducing the 120+ days claims or even completly making 
+it 0.
 
 6) Deployment:
 
 The sql and the R codes were given to the offshore team for the daily run and analysis as suggested by me.
 A Daily automated report was being generated which used to go to the end users in the Back office team in different regions
 
+Next Steps:
 
+Build the regression models for Prediction of Closed Claim amounts
+Build the classification models for the NMFC class predictions of most successtibility for damage
 
